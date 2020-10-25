@@ -1,0 +1,73 @@
+# Javashiyan
+
+## 第一次上机实验
+## 一、实验目的：
+初步了解分析系统需求，从学生选课角度了解系统中的实体及其关系，学会定义类中的属性以及方法；
+掌握面向对象的类设计方法（属性、方法）；
+掌握类的继承用法，通过构造方法实例化对象；
+学会使用super()，用于实例化子类；
+掌握使用Object根类的toString（）方法,应用在相关对象的信息输出中。
+
+## 二、实验要求：
+<br>1.编写上述实体类以及测试主类（注意类之间继承关系的适用）
+<br>2.在测试主类中，实例化多个类实体，模拟学生选课操作、打印课程信息（信息包括：编号、课程名称、上课地点、时间、授课教师 等）；模拟学生退课操作，再打印课程信息。
+<br>3.说明：学校有“人员”，分为“教师”和“学生”，教师教授“课程”，学生选择“课程”。从简化系统考虑，每名教师仅教授一门课程，每门课程的授课教师也仅有一位，每名学生选仅选一门课程。
+<br>4.编写实验报告。
+
+## 三、实验方法：
+<br>1.首先创建PC、CPU、HardDisk、Test 4个类按照要求分别再每个类里写入代码
+<br>2.通过private把类中的需要输出的对象封装起来，起到保护作用
+<br>3.然后每个类中使用两个构造方法来给类中变量进行初始化赋值
+<br>4.因为使用了private封装所以Test主类中使用set赋值
+<br>5.最后在输出语句中使用get将赋值过的变量输出出来
+## 四、核心方法
+<br>这段代码主要是跟text中scanner有关的代码，体现了通过 Scanner 类来获取用户的输入，之中也使用到了this关键字和if判断语句等。
+```java
+import java.util.Scanner;
+    public class test {
+        public static void main(String args[]) {
+            Scanner in = new Scanner(System.in);
+            teacher a = new teacher(1, "罗翔", "男", "刑法");
+            teacher b = new teacher(2, "局座", "男", "海军");
+            course c = new course("c2057", "教300", "13:30", "法学", a);
+            course d = new course("a2079", "教301", "14:30", "海军40年课程", b);
+            student i = new student(13, "张三", "男",c);
+            System.out.println("课程信息：");
+            System.out.println("课程1：" + c);
+            System.out.println("课程2：" + d);
+            System.out.println("请输入所选课程编号：");
+            int j = in.nextInt();
+            switch (j) {
+                case 1:
+                    i.setZ(c);
+                    break;
+                case 2:
+                    i.setZ(d);
+                    break;
+
+                default:
+                    System.out.println("选课无效");
+                    return;
+            }
+            System.out.println("选课成功，您选择了" + j + "号课程,课程信息：");
+            System.out.println(i);
+            System.out.println("退课不？（退课请输入5，确认不需要退课请输入6）");
+            int k = in.nextInt();
+            if (k == 5) {
+                i.setZ(null);
+                System.out.println("不许退");
+                System.out.println(i);
+
+            } else {
+                System.out.println("选课成功！");
+            }
+    }
+}
+```
+
+### 五、实验结果
+详情请见插图（滑稽）
+![1.png](https://github.com/Alpaca514/Javashiyan/blob/main/1.png)
+
+### 六、实验感想
+### 学到了修饰符private用法，明白了private可以提高安全性，实现了数据封装的思想。同时也基本能够完成一些Java简单程序的代码，在同学的帮助下解决了这次实验。总体来讲这次实验是我对java充满了决心。
